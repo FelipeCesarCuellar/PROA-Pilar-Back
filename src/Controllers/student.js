@@ -1,13 +1,15 @@
 const createStudent = require("../Services/student.js")
+const listStudents = require("../Services/student.js")
 const studentController = require("express").Router()
 
 
-studentController.get('/', (req, res) => {
-    res.send('OK!')
+studentController.get('/', async (req, res) => {
+    const studentList = await listStudents()
+    res.send(studentList)
 })
 
-studentController.post('/', (req, res) => {
-    const student = createStudent(req.body)
+studentController.post('/', async (req, res) => {
+    const student = await createStudent(req.body)
     res.status(201).send(student)
 })
 
