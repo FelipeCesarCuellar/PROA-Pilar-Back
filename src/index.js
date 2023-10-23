@@ -1,5 +1,5 @@
-const studentController = require('./Controllers/student.js')
-const courseController = require('./Controllers/course.js')
+const studentController = require('./Controllers/studentController.js')
+const courseController = require('./Controllers/courseController.js')
 
 const cors = require('cors')
 const express = require('express')

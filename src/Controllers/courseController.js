@@ -1,4 +1,4 @@
-const cr = require("../Services/course")
+const cr = require("../Services/courseService")
 const courseController = require("express").Router()
 
 

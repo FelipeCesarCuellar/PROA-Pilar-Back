@@ -1,4 +1,4 @@
-const st = require("../Services/student.js")
+const st = require("../Services/studentService.js")
 const studentController = require("express").Router()
 
 

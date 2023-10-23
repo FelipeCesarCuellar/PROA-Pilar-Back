@@ -1,5 +1,5 @@
 const dbConnection = require('../Utils/database')
-const Student = require('../Models/student') 
+const Student = require('../Models/studentModel') 
 
 async function listStudents () {
     await dbConnection()
