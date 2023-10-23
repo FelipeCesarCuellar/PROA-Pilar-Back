@@ -7,6 +7,12 @@ async function listStudents () {
     return students
 }
 
+async function findStudendByID (id) {
+    await dbConnection()
+    const student = await Student.findOne({_id:id})
+    return student
+} 
+
 async function createStudent (student) {
     await dbConnection()
     const createdStudent = await Student.create(student)
@@ -15,12 +21,13 @@ async function createStudent (student) {
 
 async function deleteStudent (id) {
     await dbConnection()
-    const deletedStudent = await Student.findByIdAndDelete(id)
-    return deletedStudent
+    await Student.deleteOne({_id:id})
 }
+
 
 module.exports = {
     listStudents,
+    findStudendByID,
     createStudent,
-    deleteStudent
+    deleteStudent,
 }
