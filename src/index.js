@@ -1,11 +1,11 @@
 const studentController = require('./Controllers/studentController.js')
 const courseController = require('./Controllers/courseController.js')
+const userController = require('./Controllers/userController.js')
 
 const cors = require('cors')
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-
 
 app.use(bodyParser.json())
 app.use(express.urlencoded({extended: true}))
@@ -13,6 +13,7 @@ app.use(cors())
 
 app.use('/student', studentController)
 app.use('/course', courseController)
+app.use('/user', userController)
 
 const port = 3000
 
