@@ -13,4 +13,14 @@ async function createStudent (student) {
     return createdStudent
 }
 
-module.exports=createStudent,listStudents
+async function deleteStudent (id) {
+    await dbConnection()
+    const deletedStudent = await Student.findByIdAndDelete(id)
+    return deletedStudent
+}
+
+module.exports = {
+    listStudents,
+    createStudent,
+    deleteStudent
+}

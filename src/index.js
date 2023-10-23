@@ -5,7 +5,9 @@ const app = express()
 const bodyParser = require('body-parser')
 
 app.use(bodyParser.json())
+app.use(express.urlencoded({extended: true}))
 app.use(cors())
+
 app.use('/student', studentController)
 
 const port = 3000
