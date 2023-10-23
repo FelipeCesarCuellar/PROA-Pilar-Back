@@ -27,7 +27,7 @@ studentController.post('/', async (req, res) => {
         const newStudent = await st.createStudent(req.body)
         res.status(201).json(newStudent)
     } catch (err){
-        res.status(400).send(err)
+        res.send(err)
     }
 })
 
@@ -35,6 +35,17 @@ studentController.delete('/:studentId', async (req, res) => {
     try{
         await st.deleteStudent(req.params.studentId)
         res.status(200).json()
+    } catch (err){
+        res.send(err)
+    } 
+})
+
+studentController.put('/:studentId', async (req, res) => {
+    const id = req.params.studentId
+    const student = req.body
+    try{
+        const updatedStudent = await st.updateStudent(id, student)
+        res.status(200).json(updatedStudent)
     } catch (err){
         res.send(err)
     } 

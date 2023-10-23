@@ -24,10 +24,16 @@ async function deleteStudent (id) {
     await Student.deleteOne({_id:id})
 }
 
+async function updateStudent (id, student) {
+    await dbConnection()
+    const updatedStudent = await Student.updateOne({_id:id}, student)
+    return updatedStudent
+}
 
 module.exports = {
     listStudents,
     findStudendByID,
     createStudent,
     deleteStudent,
+    updateStudent
 }
